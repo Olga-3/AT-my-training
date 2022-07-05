@@ -70,19 +70,31 @@ public class Foobar {
     // простые числа:
     // мы перебираем все числа от заданного числа №1 до заданного числа №2,
     // каждое из этих чисел мы пробуем поделить на число от 1 до (заданное число №2- 1)
-    public int primeNumbers2(int start, int finish) { // числа должны делиться только на себя
-        int amount = 0;
-        for (int i = start; i < finish; i++) {  //тут перебор чисел от и до, которые мы делим на что-то
-            for (int k = 1; k < finish - 1; k++) { //перебор чисел, на которые делим
-                if ((i % k != 0) && (i == k)) { // если 1число без остатка делится на 2число и при этом они равны
-                    System.out.println(i);
-                    amount++; //то увеличиваем счетчик
-                }
+    public void primeNumbers2(int start, int finish) { // числа должны делиться только на себя
+
+        for (int i = start; i < finish; i++) {  //тут перебор чисел от и до, которые мы проверяем в функции ниже
+            if (isPrime(i)) {  //если число простое, мы выводим его в консоль
+                System.out.println(i);
             }
         }
-        return amount;
     }
 
+    private boolean isPrime (int checked_number) {
+        if(checked_number == 2) {
+            return true; //true означает простое
+        }
+        for (int k = 2; k < checked_number; k++) { //перебор чисел, на которые делим
+            if (checked_number % k == 0) { //если число делится без остатка на какое-то число от 2
+                                           // до (проверяемого числа -1)
+                return false; //значит, это не простое число
+            }
+
+        }
+        return true; //иначе это простое
+    }
+
+    
+    
   
 
     /*

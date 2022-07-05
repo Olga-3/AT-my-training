@@ -31,7 +31,7 @@ public class FoobarTest {
     @Test(dataProvider = "dataProviderFoobar")
     public void testFoobar(int number, String result) {
         new Foobar().foobar(number);
-        assertEquals(baos.toString(), result, "error");
+        assertEquals(baos.toString(), result, "error"); // тест вывода в консоль
     }
 
     @DataProvider
@@ -49,12 +49,7 @@ public class FoobarTest {
     }
 
 
-    @Test
-    public void testFoobarConsole(Scanner scan, int number) {
-        //Scanner in = new Scanner(System.in);
-        //   Assert.assertEquals(new Foobar().foobarConsole(), number, "error!");
 
-    }
 
     @Test(dataProvider = "dataProviderNumber")
     public void testPrimeNumbers(int number1, int number2, int amount) {
@@ -79,14 +74,15 @@ public class FoobarTest {
     }
 
     @Test(dataProvider = "dataProviderPrimeNumbers")
-    public void testPrimeNumbers2(int start, int finish, int amount) {
-        Assert.assertEquals(new Foobar().primeNumbers2(start, finish), amount, "error");
+    public void testPrimeNumbers2(int start, int finish) {
+        new Foobar().primeNumbers2(start, finish);
+
     }
 
     @DataProvider
     public Object[][] dataProviderPrimeNumbers() {
         return new Object[][]{
-                {2, 29, 10},     //2, 3, 5, 7, 11, 13, 17, 19, 23, 29   (10 простых чисел)
+                {2, 29},     //2, 3, 5, 7, 11, 13, 17, 19, 23, 29
 
         };
     }
