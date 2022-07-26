@@ -1,5 +1,8 @@
 package org.example.helper;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class Foobar {
 /*    Реализовать функцию, которая будет будет принимать на вход целое число и выводить
 в консоль "foo", если число кратно 3,
@@ -141,6 +144,41 @@ public class Foobar {
         }
         System.out.println("Сумма квадратов 2-х наибольших чисел: " + square1 + square2);
         return square1 + square2;
+    }
+    /*
+    Даны два массива целых чисел, отсортированных по возрастанию {0, 2, 2} и {1, 3}. Надо объединить их в один, чтобы на
+    выходе получился массив, отсортированный так же по возрастанию: {0, 1, 2, 2, 3}.
+     */
+
+//    public Array correctArray() {
+//        int[] array1 = {0, 2, 2};
+//        int[] array2 = {1, 3};
+//
+//        int[] arrayResult = new int[5];
+//        for(int x: array1) {
+//            for(int y: arrayResult) {
+//                arrayResult[y] = array1[x];
+//            }
+//        }
+//
+//        Arrays.sort(arrayResult, 0, 4); //сортируем массив
+//
+//        return arrayResult[];
+//    }
+
+    /*
+    Реализуйте функцию, возвращающую двоичное представление числа n(n>=0). Например, 101 - это двоичное представление
+ числа. Метод должен иметь сигнатуру String toBinary(int number)
+     */
+
+    public String toBinary(int n) {
+        String error_message = "The number is not correct";
+        if(n>=0) {
+            return Integer.toBinaryString(n);
+        }
+        else {
+            return error_message;
+        }
     }
 }
 
