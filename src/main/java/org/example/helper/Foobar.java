@@ -1,6 +1,6 @@
 package org.example.helper;
 
-import java.lang.reflect.Array;
+import java.io.IOException;
 import java.util.Arrays;
 
 public class Foobar {
@@ -82,13 +82,13 @@ public class Foobar {
         }
     }
 
-    private boolean isPrime (int checked_number) {
-        if(checked_number == 2) {
+    private boolean isPrime(int checked_number) {
+        if (checked_number == 2) {
             return true; //true означает простое
         }
         for (int k = 2; k < checked_number; k++) { //перебор чисел, на которые делим
             if (checked_number % k == 0) { //если число делится без остатка на какое-то число от 2
-                                           // до (проверяемого числа -1)
+                // до (проверяемого числа -1)
                 return false; //значит, это не простое число
             }
 
@@ -146,16 +146,16 @@ public class Foobar {
         return square1 + square2;
     }
     /*
-    Даны два массива целых чисел, отсортированных по возрастанию {0, 2, 2} и {1, 3}. Надо объединить их в один, чтобы на
+    Даны два массива целых чисел, отсортированных по возрастанию {0, 2, 2} и {1, 3} (содержание массивов неизвестно). Надо объединить их в один, чтобы на
     выходе получился массив, отсортированный так же по возрастанию: {0, 1, 2, 2, 3}.
      */
 
-//    public Array correctArray() {
+//    public int[] correctArray() {
 //        int[] array1 = {0, 2, 2};
 //        int[] array2 = {1, 3};
 //
-//        int[] arrayResult = new int[5];
-//        for(int x: array1) {
+//        int[] arrayResult = new int[array1[].length+array2[].length];
+//        for(int x: array1) {                  //сначала итерация по
 //            for(int y: arrayResult) {
 //                arrayResult[y] = array1[x];
 //            }
@@ -167,18 +167,28 @@ public class Foobar {
 //    }
 
     /*
-    Реализуйте функцию, возвращающую двоичное представление числа n(n>=0). Например, 101 - это двоичное представление
+    Реализуйте функцию, возвращающую двоичное представление числа n (n>=0). Например, 101 - это двоичное представление
  числа. Метод должен иметь сигнатуру String toBinary(int number)
      */
 
-    public String toBinary(int n) {
-        String error_message = "The number is not correct";
-        if(n>=0) {
+    public String toBinary(int n) throws IOException {
+        if (n >= 0) {
             return Integer.toBinaryString(n);
-        }
-        else {
-            return error_message;
+        } else {
+            System.err.println("The number is not correct");
+            throw new IOException("The number is not correct");
         }
     }
+
+    public void callToBinary() {
+        try {
+            toBinary(1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    /*
+   написать свой Exception. Его можно наследовать от Runtime, если необрабатываемое, от IOException, если обрабатываемое
+     */
 }
 

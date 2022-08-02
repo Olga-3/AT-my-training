@@ -1,6 +1,10 @@
 package org.abstract_class;
 
 public class Sphere extends Shape implements Three_dimensional_shapes{
+    public Sphere(double radius) {
+        this.radius = radius;
+    }
+
     private double radius;
 
 

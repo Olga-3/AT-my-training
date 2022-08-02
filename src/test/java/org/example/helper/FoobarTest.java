@@ -1,5 +1,6 @@
 package org.example.helper;
 
+
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeTest;
@@ -7,6 +8,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Scanner;
 
@@ -102,4 +104,13 @@ public class FoobarTest {
     }
 
 
+    @Test(expectedExceptions = IOException.class)
+    public void test1ToBinary() throws IOException {
+        new Foobar().toBinary(-1);
+    }
+
+    @Test
+    public void test2ToBinary() throws IOException {
+        Assert.assertThrows(IOException.class, ()->new Foobar().toBinary(-1));
+    }
 }
