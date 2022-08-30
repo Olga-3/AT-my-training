@@ -2,7 +2,7 @@ package org.example;
 
 import java.util.Arrays;
 
-public class ArraySort {
+public class ArrayFilter {
 
     //    public int[] arraySort(int[] array, int number) {
 //        //int[] newArray = array;
@@ -15,7 +15,7 @@ public class ArraySort {
 //        }
 //        return array;
 //    }
-    public void arraySort(int[] array, int number) {
+    public void arrayFilter(int[] array, int number) {
         int[] newArr = null;
         System.out.println("Original Array is: " + Arrays.toString(array));
 
@@ -36,8 +36,8 @@ public class ArraySort {
 
 
     public static void main(String[] args) {
-        ArraySort arraySort = new ArraySort();
+        ArrayFilter arrayFilter = new ArrayFilter();
         //System.out.println(Arrays.toString(arraySort.arraySort(new int[]{1,1,3,4,5,6,7,6}, 6)));
-        arraySort.arraySort(new int[]{1, 1, 3, 4, 5, 6, 7, 6}, 6);
+        arrayFilter.arrayFilter(new int[]{1, 1, 3, 4, 5, 6, 7, 6}, 6);
     }
 }
