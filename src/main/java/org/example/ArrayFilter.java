@@ -15,29 +15,34 @@ public class ArrayFilter {
 //        }
 //        return array;
 //    }
-    public void arrayFilter(int[] array, int number) {
-        int[] newArr = null;
+
+
+    public int[] arrayFilter(int[] array, int number) {
+        int[] newArr = new int[array.length - countingElements(array, number)];
         System.out.println("Original Array is: " + Arrays.toString(array));
 
-        for (int i = 0; i < array.length - 1; i++) {
-            if (array[i] == number) {
-                newArr = new int[array.length - 1];
-                for (int index = 0; index < i; index++) {
-                    newArr[index] = array[index];
-                }
-                for (int j = i; j < array.length - 1; j++) {
-                    newArr[j] = array[j + 1];
-                }
-                break;
+        int count = 0;
+        for (int check : array) {
+            if (check != number) {
+                newArr[count] = check;
+                count++;
             }
         }
         System.out.println("New Array after deleting element = " + number + " and shifting: " + Arrays.toString(newArr));
+        return newArr;
     }
 
-
-    public static void main(String[] args) {
-        ArrayFilter arrayFilter = new ArrayFilter();
-        //System.out.println(Arrays.toString(arraySort.arraySort(new int[]{1,1,3,4,5,6,7,6}, 6)));
-        arrayFilter.arrayFilter(new int[]{1, 1, 3, 4, 5, 6, 7, 6}, 6);
+    public int countingElements(int[] array1, int number) {
+        int count = 0;
+        for (int check :
+                array1) {
+            if (check == number) {
+                count++;
+            }
+        }
+        return count;
     }
+
+    //сделать ограничение: функция должна принимать число от  -999 до 999. Иначе должен выводиться exception,
+    // сделать тесты, создать exception
 }
